@@ -6,7 +6,14 @@ export default Ember.Controller.extend({
 
    actions: {
      delete:function(){
-       console.log(this.get('model'));
+      console.log(this.get('model'));
+
+      var id = this.get('model.objectId');
+
+      return ajax("https://api.parse.com/1/classes/Token/" + id, {
+        type: "DELETE",
+      });
+
      },
 
 
@@ -14,6 +21,14 @@ export default Ember.Controller.extend({
        this.set('isEditing', true);
      },
 
+     useToken: function(){
+       if (this.get('model.pledge') >0) {
+         this.decrementProperty('model.pledge');
+         this.send('save');
+       } else {
+        console.log("It's time to donate");
+       }
+},
      save: function(){
       this.set('isEditing', false);
 
