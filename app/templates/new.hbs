@@ -1,0 +1,10 @@
+<form {{action 'createToken' model on="submit"}}>
+  {{input type="text" placeholder="Name" value=model.name}}
+  {{input type="number" placeholder="Pledge Amount" value=model.pledge}}
+
+<button type="submit">Create</button>
+</form>
+
+{{link-to 'Index' 'index'}}
+
+{{outlet}}
