@@ -7,6 +7,9 @@ export default Ember.Route.extend({
       return{};
     },
 
+  
+
+
     actions: {
       createToken: function(token){
 

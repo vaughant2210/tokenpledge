@@ -1,0 +1,43 @@
+
+
+<ul>
+  {{#each tokenController in model itemController="token"}}
+  <li>
+
+    {{#if tokenController.isEditing}}
+      {{input value=tokenController.model.name}} - {{input type="number" value=tokenController.model.pledge}}
+      <button {{action 'save'}}>Save</button>
+    {{else}}
+    <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo">
+    {{tokenController.model.name}} - {{tokenController.model.pledge}}
+
+      <button {{action 'edit'}}>Edit</button>
+      <button {{action 'delete'}}>Delete</button>
+      <button {{action 'useToken'}}>Click</button>
+    {{/if}}
+
+  </li>
+
+{{else}}
+<p> time to give</p>
+  {{/each}}
+</ul>
+
+
+
+
+
+
+
+
+
+
+  {{link-to 'Index' 'index'}}
+
+
+
+
+
+
+
+{{outlet}}
