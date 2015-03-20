@@ -6,8 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('new'); //static route--when i go to the new URL activate new route and that is it. 
-  this.route('show', { path: '/show/:token_id' }); /// dynamic routing(utilized here): when i go the show/id URL activate the show route
+  //static route--when i go to the new URL activate new route and that is it. 
+  this.route('new');
+  /// dynamic routing(utilized here): when i go the show/id URL activate the show route
+  this.route('show', { path: '/show/:token_id' });
+  this.route('search');
 });
 
 export default Router;

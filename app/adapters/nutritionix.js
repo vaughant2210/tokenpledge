@@ -5,5 +5,9 @@ export default Ember.Object.extend({
   // query is whatever you pass as the second argument to this.store.findQuery
   findQuery: function(type, query) {
     // make an ajax call to return results that match 'query'
+  },
+
+  find: function(){
+    
   }
 });

@@ -50,7 +50,11 @@ export default Ember.Object.extend({
   // 1. use model.destroy(), or this.get('model').destroy(), which will call this method
   // 2. move DELETE ajax code here
   destroy: function(type, record){
-
+    return ajax("https://api.parse.com/1/classes/Token/" + record.id, {
+      type: "DELETE",
+      data: JSON.stringify(record.toJSON())
+    }).then(console.log('deleted object'));
   }
+
 
 });
