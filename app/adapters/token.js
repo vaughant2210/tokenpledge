@@ -12,7 +12,9 @@ export default Ember.Object.extend({
     });
   },
 
-  find: function(){
-
+  find: function(type, id){
+    return ajax('https://api.parse.com/1/classes/Token').then(function(response){
+        return response.results;
+      });
   }
 });

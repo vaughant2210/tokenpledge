@@ -1,29 +1,26 @@
 
 
-<ul>
-  {{#each tokenController in model itemController="token"}}
-  <li>
+
+
+
 
     {{#if tokenController.isEditing}}
-    <button class="clickbutton"{{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></button>
+    <button class="clickbutton"{{action 'useToken'}}>  <img class="logo"{{bind-attr src=model.image}} alt="Logo"></button>
 
-      {{input value=tokenController.model.name}} - {{input type="number" value=tokenController.model.pledge}}
+      {{input value=model.name}} - {{input type="number" value=model.pledge}}
       <button {{action 'save'}}>Save</button>
     {{else}}
-    <button class="clickbutton"{{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></button>
-    {{tokenController.model.name}} - {{tokenController.model.pledge}}
+    <button class="clickbutton"{{action 'useToken'}}>  <img class="logo"{{bind-attr src=model.image}} alt="Logo"></button>
+    {{model.name}} - {{model.pledge}}   {{!i am in the specific token therefore i do not need tokenController.model.name}}
 
       <button {{action 'edit'}}>Edit</button>
       <button {{action 'delete'}}>Delete</button>
       <button {{action 'useToken'}}>Click</button>
     {{/if}}
 
-  </li>
 
-{{else}}
-<p> time to give</p>
-  {{/each}}
-</ul>
+
+
 
 
 

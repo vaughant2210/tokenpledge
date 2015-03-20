@@ -11,7 +11,7 @@
       <button {{action 'save'}}>Save</button>
     {{else}}
     <button class="clickbutton" {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></button>
-      {{link-to tokenController.model.name 'show'}} - {{tokenController.model.pledge}}
+      {{link-to tokenController.model.name 'show' tokenController.model}} - {{tokenController.model.pledge}}
 
       <button {{action 'edit'}}>Edit</button>
       <button {{action 'delete'}}>Delete</button>
