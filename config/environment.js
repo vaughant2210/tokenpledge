@@ -14,7 +14,8 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-    'connect-src': "'self' https://api.parse.com"
+      'connect-src': "'self' https://api.parse.com",
+      'img-src': "*"
     },
 
     APP: {
