@@ -19,5 +19,25 @@ export default Ember.Object.extend({
       delete token.objectId;
       return token;
     });
+  },
+
+  save: function (type, record){  //record in this is case means the actual object
+    if (record.id)  {  //if record is existing
+
+
+
+    } else { //record is new
+      return ajax("https://api.parse.com/1/classes/Token",{  //returning the result of the AJAX call
+        type: "POST",
+        data: JSON.stringify(record.toJSON()) // toJSON is function on the model, hence (); returns attribute of model
+      }).then(function(response){ // response only contains objectId and createdAt
+        record.id = response.objectId;
+        record.createdAt = response.createdAt;
+        return record;
+      });
+
+    }
+
   }
+
 });
