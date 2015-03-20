@@ -23,7 +23,14 @@ export default Ember.Object.extend({
 
   save: function (type, record){  //record in this is case means the actual object
     if (record.id)  {  //if record is existing
+      return ajax("https://api.parse.com/1/classes/Token/" + record.id, {
+        type: "PUT",
+        data: JSON.stringify(record.toJSON())
+      }).then(function(response){ // response only contains objectId and createdAt
+        record.updatedAt = response.updatedAt;
+        return record;
 
+      });
 
 
     } else { //record is new
