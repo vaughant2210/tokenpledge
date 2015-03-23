@@ -1,17 +1,204 @@
-@import "bower_components/bourbon/app/assets/stylesheets/bourbon";
-@import "bower_components/neat/app/assets/stylesheets/neat";
+@import 'bower_components/bourbon/app/assets/stylesheets/bourbon';
+$visual-grid: true;
+@import 'bower_components/neat/app/assets/stylesheets/neat';
 
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+};
+
+$mobile: new-breakpoint(max-width 500px 4);
+$tablet: new-breakpoint(max-width 840px 6);
+
+.mainheader {
+    @include outer-container;
+    height: 50px;
+    background: #F7F7F7;
+    border-bottom: 1px solid #DEDEDE;
+    color: #F5F5F5;
+};
+
+.main {
+    @include outer-container;
+    height: 400px;
+    background: white;
+};
+
+.item {
+  @include span-columns(4);
+  @include omega(3n);
+  font-size:20px;
+  border: 1px;
+  border-right-color: grey;
+  font-size:12px;
+  text-align:left;
+};
 
 
 .logo {
   border: 1px solid black;
+  background-color: white;
   border-radius: 50%;
-  height:50px;
-  width:50px;
+  height: 50px;
+  width: 50px;
+};
+
+.addlogo {
+  border: 1px dashed black;
+  background-color:#E8E8E8;
+  height: 60px;
+  width: 60px;
+};
+
+.button:hover {
+  background: white;
 
 };
 
-.clickbutton{
+.button {
+
+};
+
+.content {
+    @include outer-container;
+    height: 600px;
+    background: white;
+    padding-top: 25px;
+}
+
+.image {
+  @include span-columns(4);
+  @include omega(3n);
+  font-size:20px;
+  font-size:12px;
+  text-align:center;
+
+  img {
+    max-width: 100%;
+  }
+
+  @include media($tablet){
+  @include span-columns(6);
+
+    .text {
+      display:inline-block;
+      max-width:30%;
+      vertical-align:top;
+      margin-bottom:50px;
+      padding-left:25px;
+      max-height:1000px;
+      text-align:left;
+    }
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+      .text {
+        max-width:75%;
+        margin-bottom:50px;
+        text-align:center;
+      }
+  }
 
 
+
+}
+
+
+.cards {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+}
+
+.card {
+
+///////////////////////////////////////////////////////////////////////////////////
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-spacing: 1.5em !default;
+  $base-accent-color: #477DCA !default;
+  $base-link-color: $base-accent-color !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+
+//////////////////////////////////////////////////////////////////////////////////
+
+  $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
+  $card-background: lighten($card-border-color, 10%);
+  $card-header-background: $card-background;
+  $card-hover-background: lighten($card-background, 5%);
+  $card-image-background: #DBD199;
+  $card-image-hover-background: lighten($card-image-background, 5%);
+  $card-margin: 1em;
+
+  @include flex-basis(15em);
+  @include flex-grow(1);
+  @include transition (all 0.2s ease-in-out);
+  background-color: $card-background;
+  border-radius: $base-border-radius;
+  border: $card-border;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  cursor: pointer;
+  margin: 0 $card-margin $base-spacing $card-margin;
+  position: relative;
+  position: relative;
+
+  .card-image {
+    overflow: hidden;
+
+
+    img {
+      @include transition (all 0.2s ease-in-out);
+      background: $card-image-background;
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .card-header {
+    @include transition (all 0.2s ease-in-out);
+    background-color: $card-header-background;
+    border-bottom: $card-border;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    font-weight: bold;
+    line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+  }
+
+  .card-copy {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+
+    p {
+      margin: 0 0 ($base-spacing / 2);
+    }
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $card-hover-background;
+
+    .card-image img {
+      background: $card-image-hover-background;
+    }
+
+    .card-header {
+      background-color: $card-hover-background;
+    }
+  }
+
+  &:active {
+    background-color: $card-background;
+
+    .card-header {
+      background-color: $card-background;
+    }
+  }
 }

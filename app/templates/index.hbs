@@ -1,38 +1,76 @@
+<!-- <div class="cards">
 
-<ul>
-  {{#each tokenController in model itemController="token"}}
-  <li>
+
+  <div class="card">
+    <div class="card-image">
+      <img src="https://pbs.twimg.com/profile_images/479715387844481025/JVeNv-tq.png" alt="">
+    </div>
+    <div class="card-header">
+      First Card
+    </div>
+    <div class="card-copy">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+    </div>
+  </div> -->
+
+
+
+<section class="content cards container">
+
+  {{#each tokenController in model itemController="token" }}
 
     {{#if tokenController.isEditing}}
 
+    <div class="image card">
+    <div class="card-image">
+    <button class="button"{{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></button>
 
-    <button class="clickbutton"{{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></button>
+    <div class="text card-header" >
       {{input value=tokenController.model.name}} - {{input type="number" value=tokenController.model.pledge}}
       <button {{action 'save'}}>Save</button>
+    </div>
+    </div>
+    </div>
+
     {{else}}
-    <button class="clickbutton" {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></button>
+    <div class="image card">
+    <div class="card-image">
+    <div {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></div>
+    <div class="text card-header">
       {{link-to tokenController.model.name 'show' tokenController.model}} - {{tokenController.model.pledge}}
 
       <button {{action 'edit'}}>Edit</button>
       <button {{action 'delete'}}>Delete</button>
-
+    </div>
+    </div>
+    </div>
     {{/if}}
 
-  </li>
+
 
 {{else}}
-  <p> Hey! Welcome to Token Pledge. A simple place that gives you an opportunity to make giving to helpful causes a part of your everyday life.</p>
-  <p> How it works? Sure. Take eating out for example. For many of us, restaurants and coffee shops and bars are places we frequent.</p>
-  <p> So Token Pledge comes along with you and asks you to commit a small financial amount after frequenting that place. Take Starbucks. </p>
-  <p> You set how many tokens or times you would like to visit Starbucks. When you arrive, you click on token for that visit. After reaching the  </p>
-  <p> set amount of tokens, you are offered a chance to pledge. Token Pledge will recommend a negligible donation based on your Starbucks visits. All  </p>
-  <p> you do is select where your donation goes. Simple as that.Take the challenge and see how much we can do to make a difference!</p>
-
+  <div class="image card">
+  <div class="card-image">
+  <div class="text">
+    <p> Hey! Welcome to Token Pledge. A simple place that gives you an opportunity to make giving to helpful causes a part of your everyday life.</p>
+    <p> How it works? Sure. Take eating out for example. For many of us, restaurants and coffee shops and bars are places we frequent.</p>
+    <p> So Token Pledge comes along with you and asks you to commit a small financial amount after frequenting that place. Take Starbucks. </p>
+    <p> You set how many tokens or times you would like to visit Starbucks. When you arrive, you click on token for that visit. After reaching the  </p>
+    <p> set amount of tokens, you are offered a chance to pledge. Token Pledge will recommend a negligible donation based on your Starbucks visits. All  </p>
+    <p> you do is select where your donation goes. Simple as that.Take the challenge and see how much we can do to make a difference!</p>
+  </div>
+  </div>
+  </div>
   {{/each}}
-</ul>
 
-<h5> Token Count: {{model.length}}</h5>
 
-{{link-to 'New' 'new'}}
 
+
+<button class="button" class="addlogo"{{action 'useToken'}}>{{link-to 'New Pledge' 'new'}}</button>
+
+
+</section>
+
+
+<h5> Pledge Count: {{model.length}}</h5>
 {{outlet}}
