@@ -4,6 +4,12 @@ require "sinatra/cross_origin"
 require "dotenv"
 Dotenv.load
 
+configure do
+  enable :cross_origin
+end
+
+set :allow_methods, [:get, :post, :options]
+
 client = Twitter::REST::Client.new do |config|
   config.consumer_key    = ENV["TWITTER_CONSUMER_KEY"]
   config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
@@ -11,16 +17,9 @@ client = Twitter::REST::Client.new do |config|
   config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
 end
 
-
-configure do
-  enable :cross_origin
-end
-
-set :allow_methods, [:get, :post, :options]
-
 get "/search/:term" do |term|
   content_type :json
-  client.user_search(term).collect do |user|
+  client.user_search(term).take(5).collect do |user|
     {
       profile_image_url: user.profile_image_url,
       name: user.name,
