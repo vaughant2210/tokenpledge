@@ -37,10 +37,14 @@
     <div class="card-image">
     <div {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></div>
     <div class="text card-header">
-      {{link-to tokenController.model.name 'show' tokenController.model}} - {{tokenController.model.pledge}}
+      {{link-to tokenController.model.name 'show' tokenController.model}}
+    <div class="card-copy">
+
+       {{tokenController.model.pledge}}
 
       <button {{action 'edit'}}>Edit</button>
       <button {{action 'delete'}}>Delete</button>
+    </div>
     </div>
     </div>
     </div>

@@ -11,13 +11,22 @@ $visual-grid: true;
 $mobile: new-breakpoint(max-width 500px 4);
 $tablet: new-breakpoint(max-width 840px 6);
 
+
+
+
 .mainheader {
     @include outer-container;
     height: 50px;
-    background: #F7F7F7;
+    background: #CD6889;
     border-bottom: 1px solid #DEDEDE;
-    color: #F5F5F5;
+    color: white;
 };
+
+.subheader {
+  @include outer-container;
+  background-color: #C4C4C4;
+  height:20px;
+}
 
 .main {
     @include outer-container;
@@ -42,6 +51,9 @@ $tablet: new-breakpoint(max-width 840px 6);
   border-radius: 50%;
   height: 50px;
   width: 50px;
+  -webkit-box-shadow: -5px 24px 33px -11px rgba(0,0,0,0.65);
+  -moz-box-shadow: -5px 24px 33px -11px rgba(0,0,0,0.65);
+  box-shadow: -5px 24px 33px -11px rgba(0,0,0,0.65);
 };
 
 .addlogo {
