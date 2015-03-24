@@ -21,7 +21,7 @@ get "/search/:term" do |term|
   content_type :json
   client.user_search(term).take(5).collect do |user|
     {
-      imageUrl: user.profile_image_url.gsub('_normal', ''),
+      imageUrl: user.profile_image_url.to_s.gsub('_normal', ''),
       name: user.name,
       description: user.description,
       location: user.location
