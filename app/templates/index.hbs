@@ -13,6 +13,7 @@
     </div>
   </div> -->
 
+  <a {{action "openModal"}} class="menu-name" href="javascript:void(0)">Create a Pledge</a>
 
 
 <section class="content cards container">
@@ -23,30 +24,62 @@
 
     <div class="image card">
     <div class="card-image">
-    <button class="button"{{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></button>
+      <div class="ribbon">
+    <div {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></div>
+  </div>
+  </div>
+    <div class="card-header edit input" >
+      {{input value=tokenController.model.name}}  {{input type="number" value=tokenController.model.pledge}}
+    </div>
 
-    <div class="text card-header" >
-      {{input value=tokenController.model.name}} - {{input type="number" value=tokenController.model.pledge}}
-      <button {{action 'save'}}>Save</button>
-    </div>
-    </div>
+
+  <div class="card-copy">
+
+    <button class="btn" {{action 'saveedit'}}>Save</button>
+
+
+  </div>
     </div>
 
     {{else}}
     <div class="image card">
-    <div class="card-image">
-    <div {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></div>
-    <div class="text card-header">
-      {{link-to tokenController.model.name 'show' tokenController.model}}
-    <div class="card-copy">
 
-       {{tokenController.model.pledge}}
+      <div class="card-image ribbon-box">
+        {{#if tokenController.model.fund}}
+          <div class="ribbon-wrapper">
 
-      <button {{action 'edit'}}>Edit</button>
-      <button {{action 'delete'}}>Delete</button>
-    </div>
-    </div>
-    </div>
+            <div class="ribbon">${{tokenController.model.fund}}</div>
+          </div>
+          {{/if}}
+        <div class="ribbon">
+        <div {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></div>
+        </div>
+      </div>
+
+      <div class="card-header">
+        {{link-to tokenController.model.name 'show' tokenController.model}}
+      </div>
+
+      <div class="card-copy">
+
+       <div class="stats">
+          <ul>
+            <li>{{tokenController.model.pledge}}</li>
+          </ul>
+        </div>
+
+<!--
+        <p> 10 Tokens by April 15, 2015 </p>
+        <div class="progress-bar-indication">
+            <span class="meter" style="width: 60%">
+                <p></p>
+            </span>
+        </div> -->
+
+      <button class="btn" {{action 'edit'}}>Edit</button>
+      <button class="btn" {{action 'delete'}}>Delete</button>
+      </div>
+
     </div>
     {{/if}}
 
@@ -69,12 +102,104 @@
 
 
 
+  {{#vt-modal enabled=false title="Create a Pledge" id="modal-about"}}
+  <div class="searchbarframe">
+    <form class="search-bar" role="search" {{action 'searchPledge' on="submit"}}>
 
-<button class="button" class="addlogo"{{action 'useToken'}}>{{link-to 'New Pledge' 'new'}}</button>
+      {{input type="search" placeholder="Enter Search" value=pledgeSearchTerm}}
+      <button type="submit">
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+      </button>
+    </form>
+  </div>
+
+  {{#each company in pledgeSearchResults}}
+    <!-- <img {{bind-attr src=company.imageUrl}}> -->
+    <h2>{{company.name}}</h2>
+    <button {{action 'selectPledge' company}}>Select</button>
+  {{/each}}
+
+  <form {{action 'createToken' model on="submit"}} class="index-modal">
+
+
+    <ul>
+        <li> <div class="modal-form-name">Pledge</div> {{input type="text" placeholder="Name" value=model.name}}</li>
+        <li> <div class="modal-form-name">Token</div> {{input type="number" placeholder="Amount" value=model.pledge}} </li>
+        <!-- <li> <div class="modal-form-name">Goal</div> {{input type="date" placeholder="Date" value=model.pledge}} </li>
+        <li> <div class="modal-form-name">Donate</div> {{input type="number" placeholder="Value" value=model.pledge}}</li> -->
+
+      </ul>
+
+      <div class="modal-bottom-title">
+
+          <button class="createbutton" type="submit">Create</button>
+
+      </div>
+
+  </form>
+
+
+  {{/vt-modal}}
+
+  <div class="menu panel">
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <!--
+
+  <div class="image card">
+
+    <div class="card-image">
+      <div class="ribbon">
+      <div {{action 'useToken'}}>  <img class="logo"{{bind-attr src=tokenController.model.image}} alt="Logo"></div>
+      </div>
+    </div>
+
+    <div class="card-header">
+      <button class="button" class="addlogo"{{action 'useToken'}}>{{link-to 'New Pledge' 'new'}}</button>
+    </div>
+
+    <div class="card-copy">
+
+
+
+
+
+
+
+     <div class="stats">
+        <ul>
+          <li> {{tokenController.model.pledge.txjOVrmEwG}}</li>
+        </ul>
+      </div>
+
+
+      <p> 10 Tokens by April 15, 2015 </p>
+      <div class="progress-bar-indication">
+          <span class="meter" style="width: 60%">
+              <p></p>
+          </span>
+      </div>
+
+    <!-- <button {{action 'edit'}}>Edit</button>
+    <button {{action 'delete'}}>Delete</button> -->
+    <!-- </div>
+
+  </div> -->
+
 
 
 </section>
 
 
-<h5> Pledge Count: {{model.length}}</h5>
+<!-- <h5> Pledge Count: {{model.length}}</h5> -->
 {{outlet}}

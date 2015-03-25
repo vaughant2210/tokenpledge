@@ -1,0 +1,30 @@
+
+<section class="content cards container">
+  <img src="https://tucsonfoodie.com/wp-content/uploads/2014/02/DB-House-Burger-V2.jpg" ALT=""/>
+
+
+<form class="form-horizontal col-lg-6 col-lg-offset-3" {{action 'authenticate' on='submit'}}>
+  <fieldset class="loginbox">
+
+    <div class="form-group">
+      <label for="identification" class="control-label">Email</label>
+      <div class="edit input">
+        {{input value=identification placeholder='Enter Email' type='email' class="form-control"}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="control-label">Password</label>
+      <div class="edit input">
+        {{input value=password placeholder='Enter Password' type='password' class="form-control"}}
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    <p>
+      Don't have an account? {{link-to 'Register' 'register'}}
+    </p>
+  </fieldset>
+</form>
+
+</section>

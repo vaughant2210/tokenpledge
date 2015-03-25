@@ -1,8 +1,44 @@
-<header>
+
+
   <div class="mainheader">
-    <h2> Token Pledge </h2>
+
+    <div class="tokenpledgelogo">  ◉ token pledge</div>
+
+
+    <div  class="totalFund">
+
+        <span class="badge-notice">Fund | $.90</span>
+        <!-- <span class="badge-success"> Fund | $.90</span> -->
+    </div>
+
+
+
+    <!-- <div class="verification">
+
+      <ul class="nav navbar-nav navbar-right">
+          <li>
+            {{#if session.isAuthenticated}}
+              <a {{ action 'invalidateSession' }} href="javascript:void(0)">Logout</a>
+            {{else}}
+              {{#link-to 'login'}}Login{{/link-to}}
+            {{/if}}
+          </li>
+      </ul>
+
+
+    </div> -->
   </div>
+
+
   <div class="subheader">
+
   </div>
-</header>
+
+
+
+
+
+
+
+
 {{outlet}}

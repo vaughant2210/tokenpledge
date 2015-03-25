@@ -12,6 +12,8 @@ Router.map(function() {
   this.route('show', { path: '/show/:token_id' });
   this.route('search');
   this.route('give');
+  this.route('login');
+  this.route('register');
 });
 
 export default Router;

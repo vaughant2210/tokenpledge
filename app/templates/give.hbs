@@ -1,1 +1,36 @@
+
+
+
+
+
+
+{{#vt-modal enabled=false title="Create a Pledge" id="modal-about"}}
+
+<form {{action 'createToken' model on="submit"}} class="give-modal">
+  <ul>
+      <li> <div class="modal-form-name">Pledge</div> {{input type="text" placeholder="Name" value=model.name}}</li>
+      <li> <div class="modal-form-name">Token</div> {{input type="number" placeholder="Amount" value=model.pledge}} </li>
+      <li> <div class="modal-form-name">Goal</div> {{input type="date" placeholder="Date" value=model.pledge}} </li>
+      <li> <div class="modal-form-name">Donate</div> {{input type="number" placeholder="Value" value=model.pledge}}</li>
+
+    </ul>
+
+    <div class="modal-bottom-title">
+
+        <button class="createbutton" type="submit">Create</button>
+
+    </div>
+
+</form>
+
+
+{{/vt-modal}}
+<div class="menu panel">
+
+
+
+  <li><a {{action "openModal"}} class="menu-name" href="javascript:void(0)">Learn More</a></li>
+
+</div>
+
 {{outlet}}

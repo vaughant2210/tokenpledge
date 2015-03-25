@@ -1,40 +1,53 @@
-<!-- <div class="cards">
+
+<section class="content cards container">
 
 
-  <div class="card">
-    <div class="card-image">
-      <img src="https://pbs.twimg.com/profile_images/479715387844481025/JVeNv-tq.png" alt="">
+  <div class="image card">
+
+    <div class="addlogo">
+
+      <form {{action 'createToken' model on="submit"}}>
+        <ul>
+            <li> Pledge {{input type="text" placeholder="Name" value=model.name}}</li>
+            <li> Token {{input type="number" placeholder="Amount" value=model.pledge}} </li>
+            <li> Goal {{input type="date" placeholder="Date" value=model.pledge}} </li>
+            <li> Donate {{input type="number" placeholder="Value" value=model.pledge}}</li>
+
+          </ul>
+      <button type="submit">Create</button>
+      </form>
     </div>
-    <div class="card-header">
-      First Card
-    </div>
+
+
     <div class="card-copy">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+
+
+
+
+
+
+
+
+    <!-- <button {{action 'edit'}}>Edit</button>
+    <button {{action 'delete'}}>Delete</button> -->
     </div>
-  </div> -->
+
+  </div>
 
 
 
 
-  <form {{action 'createToken' model on="submit"}}>
-  <div class="card">
-  <div class="card-image">
-  {{input type="image" placeholder="Name" value=model.image}}
-  <div class="card-header">
-  {{input type="text" placeholder="Name" value=model.name}}
-
-  <div class="card-copy">
-  {{input type="number" placeholder="Pledge Amount" value=model.pledge}}
-
-  <button type="submit">Create</button>
-</div>
-</div>
-</div>
-</div>
 
 
-</form>
 
+
+
+
+
+
+
+
+</section>
 
 
 {{link-to 'Index' 'index'}}

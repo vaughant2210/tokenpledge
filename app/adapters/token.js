@@ -6,6 +6,7 @@ export default Ember.Object.extend({
     return ajax('https://api.parse.com/1/classes/Token').then(function(response){
       return response.results.map(function(token){
         token.id = token.objectId;
+        console.log(token);
         delete token.objectId;
         return token;
       });
