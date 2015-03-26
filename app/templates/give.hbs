@@ -1,9 +1,47 @@
+{{#vt-modal enabled=false title="Create a Pledge" id="modal-about"}}
+<div class="searchbarframe">
+  <form class="search-bar" role="search" {{action 'searchPledge' on="submit"}}>
+
+    {{input type="search" placeholder="Enter Search" value=pledgeSearchTerm}}
+    <button type="submit">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+    </button>
+  </form>
+</div>
+
+{{#each company in pledgeSearchResults}}
+  <!-- <img {{bind-attr src=company.imageUrl}}> -->
+  <h2>{{company.name}}</h2>
+  <button {{action 'selectPledge' company}}>Select</button>
+{{/each}}
+
+<form {{action 'createToken' model on="submit"}} class="index-modal">
+
+
+  <ul>
+      <li> <div class="modal-form-name">Pledge</div> {{input type="text" placeholder="Name" value=model.name}}</li>
+      <li> <div class="modal-form-name">Token</div> {{input type="number" placeholder="Amount" value=model.pledge}} </li>
+      <!-- <li> <div class="modal-form-name">Goal</div> {{input type="date" placeholder="Date" value=model.pledge}} </li>
+      <li> <div class="modal-form-name">Donate</div> {{input type="number" placeholder="Value" value=model.pledge}}</li> -->
+
+    </ul>
+
+    <div class="modal-bottom-title">
+
+        <button class="createbutton" type="submit">Create</button>
+
+    </div>
+
+</form>
+
+
+{{/vt-modal}}
 
 
 
 
 
-
+<!--
 {{#vt-modal enabled=false title="Create a Pledge" id="modal-about"}}
 
 <form {{action 'createToken' model on="submit"}} class="give-modal">
@@ -24,7 +62,7 @@
 </form>
 
 
-{{/vt-modal}}
+{{/vt-modal}} -->
 <div class="menu panel">
 
 

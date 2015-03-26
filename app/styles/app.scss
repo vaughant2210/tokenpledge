@@ -29,11 +29,25 @@ $tablet: new-breakpoint(max-width 840px 6);
   float: none;
   display: inline-block;
   margin-right: 2.35765%;
-  width: 23.23176%;
   margin: 0;
-  color:#3498db;
+  color:#6B96D8;
   font-size:30px;
 
+}
+
+.shape{
+  color:grey;
+  height:30px;
+  width: 30px;
+}
+/* .menu-name a{
+  color: #000;
+  text-decoration: none;
+} */
+
+
+.tokenpledgelogo span {
+  color: #6B96D8;
 }
 
 .verification {
@@ -50,7 +64,7 @@ $tablet: new-breakpoint(max-width 840px 6);
 
 .subheader {
   @include outer-container;
-  height:48px;
+  height:2px;
   background: white;
 }
 
@@ -83,10 +97,12 @@ $tablet: new-breakpoint(max-width 840px 6);
 };
 
 .addlogo {
-  border: 1px dashed black;
+  border: 2px dashed lightgray;
   background-color:#E8E8E8;
-  height: 200px;
-  width: 200px;
+  height: 352px;
+  width: 195px;
+  font-size:18px;
+  border-radius:5px;
 };
 
 .button:hover {
@@ -615,10 +631,18 @@ form.search-bar {
   text-decoration: none;
 }
 
+.menutwo{
+  width:95%;
+  margin: 0 auto;
+}
 .menu-name{
   font-family:arial;
-  margin-left:1050px;
   color: lightgray;
+  font-size:18px;
+  font-style: none;
+  text-align:right;
+  margin-top: 20px;
+  text-decoration: none;
 }
 
 .loginbox{
@@ -660,7 +684,7 @@ $success-color: #e6efc2 !default;
   @include badge($notice-color);
   height: 25px;
   width: 100px;
-  margin-top:15px;
+  margin-top:11px;
 }
 
 .badge-success {

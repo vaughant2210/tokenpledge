@@ -1,7 +1,35 @@
 
-<section class="content cards container">
+<section>
+
+  <div class="searchbarframe" >
+    <form class="search-bar" role="search" {{action 'searchPledge' on="submit"}}>
+
+      <div class="edit input">
+      {{input type="search" placeholder="Enter Search" value=pledgeSearchTerm}}
+    </div>
+      <button type="submit">
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+      </button>
+    </form>
+  </div>
+
+  <div>
+
+    <div class="edit input" >
+
+      <form {{action 'createToken' model on="submit"}}>
+
+            Pledge {{input type="text" placeholder="Name" value=model.name}}
+            
+            Token {{input type="number" placeholder="Amount" value=model.pledge}}
 
 
+      <button type="submit">Create</button>
+      </form>
+    </div>
+</div>
+  </section>
+<!--
   <div class="image card">
 
     <div class="addlogo">
@@ -30,11 +58,9 @@
 
     <!-- <button {{action 'edit'}}>Edit</button>
     <button {{action 'delete'}}>Delete</button> -->
-    </div>
+    <!-- </div> -->
 
-  </div>
-
-
+  <!-- </div> -->
 
 
 
@@ -47,7 +73,9 @@
 
 
 
-</section>
+
+
+
 
 
 {{link-to 'Index' 'index'}}

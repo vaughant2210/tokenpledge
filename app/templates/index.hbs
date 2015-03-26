@@ -13,7 +13,11 @@
     </div>
   </div> -->
 
-  <a {{action "openModal"}} class="menu-name" href="javascript:void(0)">Create a Pledge</a>
+
+
+
+<div class="menutwo">  {{#link-to 'new'}}<div  class="menu-name">✚ Create</div>{{/link-to}}</div>
+
 
 
 <section class="content cards container">
@@ -76,7 +80,7 @@
             </span>
         </div> -->
 
-      <button class="btn" {{action 'edit'}}>Edit</button>
+      <button class="btn" {{action 'edit'}}>Edit   </button>
       <button class="btn" {{action 'delete'}}>Delete</button>
       </div>
 
@@ -100,6 +104,8 @@
   </div>
   {{/each}}
 
+  <button class="button" class="addlogo"{{action 'useToken'}}>{{link-to '✚ Create' 'new'}}</button>
+  <li><a {{action "openModal"}} class="menu-name" href="javascript:void(0)">Learn More</a></li>
 
 
   {{#vt-modal enabled=false title="Create a Pledge" id="modal-about"}}
@@ -164,9 +170,9 @@
       </div>
     </div>
 
-    <div class="card-header">
+
       <button class="button" class="addlogo"{{action 'useToken'}}>{{link-to 'New Pledge' 'new'}}</button>
-    </div>
+
 
     <div class="card-copy">
 
