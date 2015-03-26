@@ -35,11 +35,7 @@ $tablet: new-breakpoint(max-width 840px 6);
 
 }
 
-.shape{
-  color:grey;
-  height:30px;
-  width: 30px;
-}
+
 /* .menu-name a{
   color: #000;
   text-decoration: none;
@@ -405,7 +401,7 @@ $tablet: new-breakpoint(max-width 840px 6);
 //////////////////////SEARCH/////////////////////////////
 
 .searchbarframe{
-  padding-top: 5px;
+  padding-top: 25px;
 
 }
 
@@ -415,7 +411,7 @@ form.search-bar {
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
   $base-line-height: 1.5em !default;
-  $base-accent-color: #477DCA !default;
+  $base-accent-color: transparent !default;
   $dark-gray: #333 !default;
   //////////////////////////////////////////////////////////////////////////////////
 
@@ -436,10 +432,10 @@ form.search-bar {
     display: block;
     font-size: 1em;
     font-style: italic;
-    margin-left: 25%;
+    margin-left: 0%;
     /* padding: ($base-spacing / 3) ($base-spacing / 3); */
     position: relative;
-    width: 50%;
+    width: 75%;
     height: 35px;
   }
 
@@ -452,7 +448,7 @@ form.search-bar {
     padding: 2px 10px;
 
     img {
-      height: 12px;
+      height: 17px;
       opacity: 0.7;
     }
   }
@@ -484,8 +480,8 @@ form.search-bar {
     color: #222;
     box-shadow: 0 2px 3px #333;
     border-radius: 10px;
-    height:500px;
-    width:500px;
+    height:400px;
+    width:450px;
   //border: 1px solid #DDDDDD;
   //color: #222;
   //box-shadow: 0 0 3px #333;
@@ -581,10 +577,12 @@ form.search-bar {
 .modal-bottom-title {
 
   width: 100%;
-  padding-left: 3%;
+  padding-left: 0%;
 
-  text-align: center;
-  margin-top:25px;
+  text-align: left;
+  margin-top:50px;
+  border-top:1px solid lightgray;
+  margin-bottom: 50px;
 }
 
 
@@ -697,4 +695,77 @@ $success-color: #e6efc2 !default;
 .totalFund{
   display: inline-block;
   float:right;
+}
+
+.twitterlogo{
+  height:25px;
+  width: 25px;
+}
+
+.modalcreate{
+
+margin-top:10px;
+}
+
+
+.modalcreatetitle{
+  font-family: arial;
+  font-size:14px;
+  margin-right:5px;
+  color: gray;
+
+}
+
+.twitterimage{
+  height:40px;
+  width:40px;
+}
+
+.twitterwrap{
+  margin-top:10px;
+  display:inline-block;
+
+}
+
+.twittername{
+  font-family: sans-serif;
+  display: inline-block;
+  color:#545454;
+}
+
+.twitterbutton{
+
+  display: inline-block;
+}
+
+.twitterlogosearch{
+  height:17px;
+  width:17px;
+
+}
+
+.twittersurround{
+  margin: 0 auto;
+}
+
+.selecttwitter{
+  border-radius:10%;
+  background: transparent;
+
+}
+
+.style{
+  height:120px;
+  width:120px;
+  border:1px solid #ccc;
+  font:16px/26px Georgia, Garamond, Serif;
+  overflow:auto;
+
+
+}
+
+.twitter-results{
+overflow: scroll;
+max-height: 150px;
+
 }

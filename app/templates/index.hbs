@@ -13,6 +13,11 @@
     </div>
   </div> -->
 
+  <div  class="totalFund">
+
+      <span class="badge-notice">Fund | ${{fundSum}}</span>
+      <!-- <span class="badge-success"> Fund | $.90</span> -->
+  </div>
 
 
 
@@ -108,37 +113,46 @@
   <li><a {{action "openModal"}} class="menu-name" href="javascript:void(0)">Learn More</a></li>
 
 
-  {{#vt-modal enabled=false title="Create a Pledge" id="modal-about"}}
+  {{#vt-modal enabled=shouldShowModal title="Create a Pledge" id="modal-about"}}
   <div class="searchbarframe">
     <form class="search-bar" role="search" {{action 'searchPledge' on="submit"}}>
-
-      {{input type="search" placeholder="Enter Search" value=pledgeSearchTerm}}
+      {{input type="search" placeholder="Search" value=pledgeSearchTerm}}
       <button type="submit">
-        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+        <img src="https://g.twimg.com/Twitter_logo_blue.png" alt="Search Icon">
       </button>
     </form>
   </div>
-
+<div class="twitter-results">
   {{#each company in pledgeSearchResults}}
-    <!-- <img {{bind-attr src=company.imageUrl}}> -->
-    <h2>{{company.name}}</h2>
-    <button {{action 'selectPledge' company}}>Select</button>
-  {{/each}}
 
+    <div class="twittersurround">
+      <div class="twitterwrap"> <button class="selecttwitter" {{action 'selectPledge' company}}><img class="twitterimage" {{bind-attr src=company.imageUrl}}></button></div>
+      <div class="twittername"> {{company.name}} </div>
+
+      </div>
+
+  {{/each}}
+</div>
   <form {{action 'createToken' model on="submit"}} class="index-modal">
 
 
-    <ul>
-        <li> <div class="modal-form-name">Pledge</div> {{input type="text" placeholder="Name" value=model.name}}</li>
-        <li> <div class="modal-form-name">Token</div> {{input type="number" placeholder="Amount" value=model.pledge}} </li>
+        <div class="edit input">
+        <!-- <p class="modalcreatetitle">Pledge      {{input type="text" placeholder=" Name" value=model.name}}</p> -->
+        {{#if selectedPledge.imageUrl}}
+          <h2>{{selectedPledge.name}}</h2>
+          <img class="twitterimage" {{bind-attr src=selectedPledge.imageUrl}}>
+        {{/if}}
+        <p class="modalcreatetitle">Token(s)  {{input type="number" placeholder="Amount" value=pledgeAmount}}</p>
+        </div>
+
         <!-- <li> <div class="modal-form-name">Goal</div> {{input type="date" placeholder="Date" value=model.pledge}} </li>
         <li> <div class="modal-form-name">Donate</div> {{input type="number" placeholder="Value" value=model.pledge}}</li> -->
 
-      </ul>
+
 
       <div class="modal-bottom-title">
 
-          <button class="createbutton" type="submit">Create</button>
+          <button class="btn modalcreate" type="submit">Create</button>
 
       </div>
 

@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('give');
   this.route('login');
   this.route('register');
+  this.route('home');
 });
 
 export default Router;
