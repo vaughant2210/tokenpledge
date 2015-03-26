@@ -60,7 +60,7 @@ $tablet: new-breakpoint(max-width 840px 6);
 
 .subheader {
   @include outer-container;
-  height:2px;
+  height:20px;
   background: white;
 }
 
@@ -93,16 +93,27 @@ $tablet: new-breakpoint(max-width 840px 6);
 };
 
 .addlogo {
-  border: 2px dashed lightgray;
-  background-color:#E8E8E8;
-  height: 352px;
-  width: 195px;
-  font-size:18px;
-  border-radius:5px;
+  background: rgba(0, 0, 0, 0.03);
+    border: 2px dashed #bbb;
+    border-radius: 6px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #888;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+    width: 200px;
+    height: 350px;
+    margin-left:20px;
+    margin-right:10px;
 };
 
 .button:hover {
-  background: white;
+  background: grey;
 
 };
 
@@ -639,8 +650,10 @@ form.search-bar {
   font-size:18px;
   font-style: none;
   text-align:right;
-  margin-top: 20px;
+  width: 20%;
+  height:62%;
   text-decoration: none;
+  float:right;
 }
 
 .loginbox{
@@ -683,6 +696,7 @@ $success-color: #e6efc2 !default;
   height: 25px;
   width: 100px;
   margin-top:11px;
+  font-size:13px;
 }
 
 .badge-success {
@@ -731,6 +745,7 @@ margin-top:10px;
   font-family: sans-serif;
   display: inline-block;
   color:#545454;
+  font-style:italic;
 }
 
 .twitterbutton{
@@ -746,6 +761,8 @@ margin-top:10px;
 
 .twittersurround{
   margin: 0 auto;
+  font-family:sans-serif;
+  font-size:12px;
 }
 
 .selecttwitter{
@@ -767,5 +784,7 @@ margin-top:10px;
 .twitter-results{
 overflow: scroll;
 max-height: 150px;
+font-family:sans-serif;
+font-size:12px;
 
 }

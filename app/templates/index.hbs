@@ -13,15 +13,14 @@
     </div>
   </div> -->
 
-  <div  class="totalFund">
 
-      <span class="badge-notice">Fund | ${{fundSum}}</span>
-      <!-- <span class="badge-success"> Fund | $.90</span> -->
-  </div>
-
+<div class="subheader">
+  <div {{action "openModal"}} class="menu-name" href="javascript:void(0)">✚Create</div>
+</div>
 
 
-<div class="menutwo">  {{#link-to 'new'}}<div  class="menu-name">✚ Create</div>{{/link-to}}</div>
+
+<!-- <div class="menutwo">  {{#link-to 'new'}}<div  class="menu-name"></div>{{/link-to}}</div> -->
 
 
 
@@ -109,8 +108,11 @@
   </div>
   {{/each}}
 
-  <button class="button" class="addlogo"{{action 'useToken'}}>{{link-to '✚ Create' 'new'}}</button>
-  <li><a {{action "openModal"}} class="menu-name" href="javascript:void(0)">Learn More</a></li>
+
+  <a {{action "openModal"}} class="addlogo " href="javascript:void(0)">✚ Create</a>
+
+  <!-- <button class="button" class="addlogo"{{action 'useToken'}}>{{link-to '✚ Create' 'new'}}</button> -->
+  <!-- <a {{action "openModal"}} class="menu-name" href="javascript:void(0)">Learn More</a> -->
 
 
   {{#vt-modal enabled=shouldShowModal title="Create a Pledge" id="modal-about"}}
@@ -139,8 +141,9 @@
         <div class="edit input">
         <!-- <p class="modalcreatetitle">Pledge      {{input type="text" placeholder=" Name" value=model.name}}</p> -->
         {{#if selectedPledge.imageUrl}}
-          <h2>{{selectedPledge.name}}</h2>
           <img class="twitterimage" {{bind-attr src=selectedPledge.imageUrl}}>
+
+          <div class="twittername">{{selectedPledge.name}}</div>
         {{/if}}
         <p class="modalcreatetitle">Token(s)  {{input type="number" placeholder="Amount" value=pledgeAmount}}</p>
         </div>
